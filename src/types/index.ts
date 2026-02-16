@@ -10,6 +10,27 @@ export interface Customer {
     salary: number;                // 45000
     location: string;              // "Maharashtra"
 
+    // NEW: Demographics
+    age: number;                   // 28, 45, 52
+    jobType: 'salaried' | 'self_employed' | 'contract' | 'business_owner';
+    employmentTenure: number;      // Years at current employer (2.5, 8.0)
+    maritalStatus: 'single' | 'married' | 'divorced';
+    dependents: number;            // 0, 1, 2, 3+
+    education: 'high_school' | 'bachelors' | 'masters' | 'phd';
+
+    // NEW: Credit Profile
+    creditScore: number;           // 300-900 (CIBIL)
+    creditScoreDate: string;       // "2026-01-15"
+
+    // NEW: Assets
+    assets: Assets;
+
+    // NEW: Income Streams
+    incomeStreams: IncomeStreams;
+
+    // NEW: Digital Behavior
+    digitalBehavior: DigitalBehavior;
+
     // Products
     products: Product[];
 
@@ -32,7 +53,8 @@ export interface Customer {
     daysToDefault: number;
 }
 
-export type ProductType = 'personal_loan' | 'credit_card' | 'home_loan' | 'savings';
+export type ProductType = 'personal_loan' | 'credit_card' | 'home_loan' | 'savings' |
+    'business_loan' | 'working_capital' | 'education_loan' | 'car_loan' | 'mutual_funds';
 
 export interface Product {
     type: ProductType;
@@ -40,10 +62,15 @@ export interface Product {
     emi?: number;                 // EMI amount
     outstanding?: number;         // Outstanding balance
     balance?: number;             // Savings balance
+    // NEW: Loan details
+    purpose?: 'home' | 'education' | 'medical' | 'business' | 'personal' | 'vehicle';
+    startDate?: string;           // "2020-01-15"
+    maturityDate?: string;        // "2030-01-15"
 }
 
 export type SignalType = 'salary_delay' | 'savings_drawdown' | 'failed_autodebit' |
-    'utility_delay' | 'lending_app' | 'discretionary_drop' | 'cash_hoarding';
+    'utility_delay' | 'lending_app' | 'discretionary_drop' | 'cash_hoarding' |
+    'income_drop' | 'macro_impact' | 'revenue_drop' | 'vendor_delay' | 'sector_stress';
 
 export interface Signal {
     type: SignalType;
@@ -87,6 +114,10 @@ export interface FinancialMetrics {
         atmWithdrawals: number;     // 6x normal
     };
     cashFlow: MonthlyFlow[];
+    // NEW: Financial Ratios
+    ratios: FinancialRatios;
+    // NEW: Behavioral Metrics
+    behavioralMetrics: BehavioralMetrics;
 }
 
 export interface MonthlyFlow {
@@ -110,6 +141,7 @@ export interface Intervention {
     successRate: number;         // 78
     impact: 'high' | 'medium' | 'low';
     description?: string;
+    valueSaved?: string;         // "₹4,20,000"
 }
 
 export interface SHAPFeature {
@@ -130,4 +162,39 @@ export interface RegionalData {
     region: string;
     unemployment: number;
     trend: string;
+}
+
+// NEW INTERFACES
+
+export interface Assets {
+    ownsHome: boolean;
+    ownsCar: boolean;
+    investmentValue?: number;      // Mutual funds, stocks, etc.
+}
+
+export interface IncomeStreams {
+    primary: number;               // Salary
+    secondary?: number;            // Rental, freelance, etc.
+    passive?: number;              // Investments, dividends
+}
+
+export interface DigitalBehavior {
+    appLoginFrequency: number;     // Logins per month
+    lastLoginDate: string;         // "2026-02-15"
+    autoPayEnabled: boolean;
+    statementViewFrequency: number; // Views per month
+}
+
+export interface FinancialRatios {
+    pti: number;                   // Payment to Income (EMI/Salary)
+    dti: number;                   // Debt to Income (TotalDebt/Salary)
+    creditUtilization: number;     // UsedCredit/TotalCreditLimit (0-1)
+    balanceStressRatio: number;    // SavingsBalance/MonthlyEMI
+}
+
+export interface BehavioralMetrics {
+    latePaymentsLast6M: number;    // Count: 0, 1, 3
+    missedEMICountLast3M: number;  // Count: 0, 1, 2
+    paymentVolatilityScore: number; // 0-100 (consistency score)
+    transactionVolatility: number;  // Std deviation of monthly spending
 }

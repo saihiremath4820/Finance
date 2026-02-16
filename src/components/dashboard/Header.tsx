@@ -28,8 +28,8 @@ const Header: React.FC = () => {
 
                 <div className="flex items-center gap-3 pl-6 border-l border-gray-100">
                     <div className="flex flex-col items-end">
-                        <span className="text-sm font-bold text-gray-900">Sarah Jenkins</span>
-                        <span className="text-[10px] text-gray-500 font-semibold uppercase tracking-wider">Risk Administrator</span>
+                        <span className="text-sm font-bold text-gray-900">Anjali Sharma</span>
+                        <span className="text-[10px] text-gray-500 font-semibold uppercase tracking-wider">Senior Risk Manager</span>
                     </div>
                     <div className="w-10 h-10 bg-barclays-blue/10 rounded-xl flex items-center justify-center text-barclays-blue border border-barclays-blue/20">
                         <User className="w-6 h-6" />

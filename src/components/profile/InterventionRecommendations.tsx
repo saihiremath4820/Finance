@@ -60,8 +60,12 @@ const InterventionRecommendations: React.FC<InterventionRecommendationsProps> = 
                                     "text-2xl font-black",
                                     item.successRate >= 75 ? "text-green-600" : "text-orange-600"
                                 )}>
-                                    {item.successRate}%
                                 </div>
+                                {item.valueSaved && (
+                                    <div className="mt-1 text-[10px] font-bold text-gray-400 bg-green-50 text-green-700 px-2 py-1 rounded inline-block">
+                                        Saves {item.valueSaved}
+                                    </div>
+                                )}
                             </div>
                         </div>
 

@@ -13,7 +13,7 @@ const BrokerDashboard: React.FC = () => {
     const stats = [
         { label: 'Active Policies', value: '1,245', trend: '+12%', icon: FileText, color: 'text-blue-600 bg-blue-50' },
         { label: 'Pending Quotes', value: '48', trend: '-2%', icon: Users, color: 'text-orange-600 bg-orange-50' },
-        { label: 'Commission Earned', value: '£24.5k', trend: '+8%', icon: CreditCard, color: 'text-green-600 bg-green-50' },
+        { label: 'Commission Earned', value: '₹24.5k', trend: '+8%', icon: CreditCard, color: 'text-green-600 bg-green-50' },
         { label: 'Approval Rate', value: '94%', trend: '+1.5%', icon: CheckCircle, color: 'text-purple-600 bg-purple-50' },
     ];
 
@@ -75,10 +75,10 @@ const BrokerDashboard: React.FC = () => {
                                 </thead>
                                 <tbody className="divide-y divide-gray-50">
                                     {[
-                                        { name: 'Acme Corp Ltd', type: 'Commercial Liability', amount: '£12,450', date: 'Today', status: 'Pending' },
-                                        { name: 'Globex Logistics', type: 'Fleet Insurance', amount: '£45,200', date: 'Yesterday', status: 'Active' },
-                                        { name: 'Stark Industries', type: 'Cyber Security', amount: '£89,000', date: 'Oct 24', status: 'Review' },
-                                        { name: 'Wayne Ent.', type: 'Property', amount: '£125,000', date: 'Oct 22', status: 'Active' },
+                                        { name: 'Reliance Industries', type: 'Commercial Liability', amount: '₹12.4L', date: 'Today', status: 'Pending' },
+                                        { name: 'Adani Logistics', type: 'Fleet Insurance', amount: '₹45.2L', date: 'Yesterday', status: 'Active' },
+                                        { name: 'Infosys Ltd', type: 'Cyber Security', amount: '₹89.0L', date: 'Oct 24', status: 'Review' },
+                                        { name: 'Tata Motors', type: 'Property', amount: '₹1.25Cr', date: 'Oct 22', status: 'Active' },
                                     ].map((row, i) => (
                                         <tr key={i} className="group hover:bg-gray-50/50 transition-colors cursor-pointer">
                                             <td className="py-4 text-sm font-bold text-gray-900">{row.name}</td>

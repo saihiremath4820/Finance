@@ -86,7 +86,7 @@ const ExecutiveOverview: React.FC = () => {
                             <span>AI Daily Brief</span>
                         </div>
                         <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">
-                            <span className="opacity-80 font-light">{greeting}, Sarah.</span> <br />
+                            <span className="opacity-80 font-light">{greeting}, Anjali.</span> <br />
                             Portfolio risk is stable.
                         </h1>
                         <p className="text-gray-400 max-w-xl text-lg">

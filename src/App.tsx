@@ -9,7 +9,6 @@ import Settings from './pages/Settings';
 import AlertManagement from './pages/AlertManagement';
 import LoginPage from './pages/LoginPage';
 import BrokerDashboard from './pages/BrokerDashboard';
-import CustomerPortal from './pages/CustomerPortal';
 
 function App() {
   return (
@@ -21,13 +20,11 @@ function App() {
 
           {/* Authenticated Routes (With Chatbot) */}
           <Route element={<MainLayout />}>
-            <Route path="/broker" element={<BrokerDashboard />} />
-            <Route path="/customer-portal" element={<CustomerPortal />} />
-
             {/* Admin Dashboard Routes */}
             <Route element={<DashboardLayout />}>
               <Route path="/" element={<ExecutiveOverview />} />
               <Route path="/monitoring" element={<RiskMonitoring />} />
+              <Route path="/broker" element={<BrokerDashboard />} />
               <Route path="/customer/:id" element={<CustomerProfile />} />
               <Route path="/alerts" element={<AlertManagement />} />
               <Route path="/analytics" element={<Analytics />} />
