@@ -168,7 +168,7 @@ const RiskMonitoring: React.FC = () => {
             {/* Filters Panel */}
             <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm space-y-4">
                 <div className="flex items-center gap-2 text-gray-900 font-bold mb-2">
-                    <Filter size={18} className="text-barclays-blue" />
+                    <Filter size={18} className="text-brand-blue-500" />
                     <h2>Advanced Filters</h2>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -181,7 +181,7 @@ const RiskMonitoring: React.FC = () => {
                                 value={globalFilter ?? ''}
                                 onChange={e => setGlobalFilter(e.target.value)}
                                 placeholder="Name or ID..."
-                                className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-barclays-blue/20"
+                                className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue-500/20"
                             />
                         </div>
                     </div>
@@ -191,7 +191,7 @@ const RiskMonitoring: React.FC = () => {
                         <select
                             value={riskFilter}
                             onChange={e => setRiskFilter(e.target.value)}
-                            className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-barclays-blue/20"
+                            className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue-500/20"
                         >
                             <option value="all">All Risks</option>
                             <option value="critical">Critical</option>
@@ -206,7 +206,7 @@ const RiskMonitoring: React.FC = () => {
                         <select
                             value={sectorFilter}
                             onChange={e => setSectorFilter(e.target.value)}
-                            className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-barclays-blue/20"
+                            className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue-500/20"
                         >
                             <option value="all">All Sectors</option>
                             <option value="IT Services">IT Services</option>
@@ -224,7 +224,7 @@ const RiskMonitoring: React.FC = () => {
                                 setSectorFilter('all');
                                 setGlobalFilter('');
                             }}
-                            className="text-xs font-bold text-barclays-blue hover:underline"
+                            className="text-xs font-bold text-brand-blue-500 hover:underline"
                         >
                             Clear All Filters
                         </button>
@@ -248,8 +248,8 @@ const RiskMonitoring: React.FC = () => {
                                             <div className="flex items-center gap-2">
                                                 {flexRender(header.column.columnDef.header, header.getContext())}
                                                 {{
-                                                    asc: <ArrowUp size={12} className="text-barclays-blue" />,
-                                                    desc: <ArrowDown size={12} className="text-barclays-blue" />,
+                                                    asc: <ArrowUp size={12} className="text-brand-blue-500" />,
+                                                    desc: <ArrowDown size={12} className="text-brand-blue-500" />,
                                                 }[header.column.getIsSorted() as string] ?? null}
                                             </div>
                                         </th>
@@ -261,7 +261,7 @@ const RiskMonitoring: React.FC = () => {
                             {table.getRowModel().rows.map(row => (
                                 <tr
                                     key={row.id}
-                                    className="hover:bg-blue-50/30 transition-colors cursor-pointer group"
+                                    className="hover:bg-brand-blue-50/30 transition-colors cursor-pointer group"
                                     onClick={() => navigate(`/customer/${row.original.id}`)}
                                 >
                                     {row.getVisibleCells().map(cell => (
@@ -297,7 +297,7 @@ const RiskMonitoring: React.FC = () => {
                                     className={cn(
                                         "w-8 h-8 rounded-lg text-xs font-bold transition-all",
                                         table.getState().pagination.pageIndex === i
-                                            ? "bg-barclays-blue text-white shadow-md shadow-barclays-blue/20"
+                                            ? "bg-brand-blue-500 text-white shadow-md shadow-brand-blue-500/20"
                                             : "text-gray-500 hover:bg-gray-100"
                                     )}
                                 >

@@ -50,7 +50,7 @@ const InterventionRecommendations: React.FC<InterventionRecommendationsProps> = 
                         <div className="flex justify-between items-start mb-6">
                             <div className={cn(
                                 "w-12 h-12 rounded-xl flex items-center justify-center",
-                                item.rank === 1 ? "bg-purple-600 text-white shadow-lg shadow-purple-200" : "bg-gray-50 text-gray-400 group-hover:bg-barclays-blue group-hover:text-white transition-colors"
+                                item.rank === 1 ? "bg-purple-600 text-white shadow-lg shadow-purple-200" : "bg-gray-50 text-gray-400 group-hover:bg-brand-blue-500 group-hover:text-white transition-colors"
                             )}>
                                 {getIcon(item.type)}
                             </div>

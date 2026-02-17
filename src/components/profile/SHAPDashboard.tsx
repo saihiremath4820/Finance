@@ -26,7 +26,7 @@ const SHAPDashboard: React.FC = () => {
         <div className="bg-gray-900 p-8 rounded-3xl text-white shadow-2xl">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
                 <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-barclays-blue border border-white/10">
+                    <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-brand-blue-500 border border-white/10">
                         <BrainCircuit className="w-7 h-7" />
                     </div>
                     <div>
@@ -83,7 +83,7 @@ const SHAPDashboard: React.FC = () => {
 
                 <div className="space-y-8">
                     <div className="bg-white/5 border border-white/5 p-6 rounded-2xl">
-                        <h4 className="text-xs font-black text-barclays-blue uppercase tracking-widest mb-4">Risk Factor Analysis</h4>
+                        <h4 className="text-xs font-black text-brand-blue-500 uppercase tracking-widest mb-4">Risk Factor Analysis</h4>
                         <p className="text-sm text-white/70 font-medium leading-relaxed mb-6">
                             The dominant factor driving the score of 87 is <span className="text-red-400 font-bold">External Sector Risk</span> (+22 pts).
                             This indicates that even if the customer's internal metrics were improving, the macro environment would keep them in a high-risk category.

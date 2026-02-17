@@ -10,9 +10,9 @@ interface SignalBadgeProps {
 
 const colorMap = {
     critical: 'bg-red-500',
-    high: 'bg-orange-500',
+    high: 'bg-brand-orange-500',
     medium: 'bg-yellow-500',
-    low: 'bg-blue-500',
+    low: 'bg-brand-blue-500',
 };
 
 const SignalBadge: React.FC<SignalBadgeProps> = ({ severity, tooltip }) => {

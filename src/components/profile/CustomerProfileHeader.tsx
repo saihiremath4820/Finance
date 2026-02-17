@@ -13,7 +13,7 @@ const CustomerProfileHeader: React.FC<CustomerProfileHeaderProps> = ({ customer 
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
             <div className="p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                 <div className="flex items-start gap-6">
-                    <div className="w-20 h-20 bg-barclays-blue/10 rounded-2xl flex items-center justify-center text-barclays-blue border border-barclays-blue/20">
+                    <div className="w-20 h-20 bg-brand-blue-500/10 rounded-2xl flex items-center justify-center text-brand-blue-500 border border-brand-blue-500/20">
                         <User className="w-10 h-10" />
                     </div>
                     <div className="space-y-2">
@@ -44,9 +44,9 @@ const CustomerProfileHeader: React.FC<CustomerProfileHeaderProps> = ({ customer 
                         <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Risk Score</div>
                         <div className={cn(
                             "text-5xl font-black mb-1",
-                            customer.riskScore >= 80 ? "text-red-600" :
-                                customer.riskScore >= 60 ? "text-orange-600" :
-                                    customer.riskScore >= 40 ? "text-yellow-600" : "text-blue-600"
+                                customer.riskScore >= 80 ? "text-red-600" :
+                                customer.riskScore >= 60 ? "text-brand-orange-600" :
+                                    customer.riskScore >= 40 ? "text-yellow-600" : "text-brand-blue-600"
                         )}>
                             {customer.riskScore}
                         </div>

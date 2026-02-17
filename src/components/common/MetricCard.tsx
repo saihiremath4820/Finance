@@ -22,8 +22,8 @@ interface MetricCardProps {
 
 const colorMap = {
     red: { bg: 'bg-red-50', text: 'text-red-600', border: 'border-red-100' },
-    orange: { bg: 'bg-orange-50', text: 'text-orange-600', border: 'border-orange-100' },
-    blue: { bg: 'bg-blue-50', text: 'text-blue-600', border: 'border-blue-100' },
+    orange: { bg: 'bg-brand-orange-50', text: 'text-brand-orange-500', border: 'border-brand-orange-100' },
+    blue: { bg: 'bg-brand-blue-50', text: 'text-brand-blue-500', border: 'border-brand-blue-100' },
     green: { bg: 'bg-green-50', text: 'text-green-600', border: 'border-green-100' },
 };
 

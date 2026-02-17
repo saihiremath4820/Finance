@@ -7,7 +7,6 @@ import {
     PieChart,
     Settings,
     ShieldAlert,
-
     LayoutTemplate,
     LogOut
 } from 'lucide-react';
@@ -19,29 +18,17 @@ function cn(...inputs: ClassValue[]) {
 }
 
 const Sidebar: React.FC = () => {
-    const [isCollapsed, setIsCollapsed] = React.useState(true); // Default to collapsed as requested
+    const [isCollapsed, setIsCollapsed] = React.useState(true);
     const timeoutRef = React.useRef<number | null>(null);
 
-    // Handler to expand on hover with debounce
     const handleMouseEnter = () => {
-        if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current);
-        }
-        // Small delay to prevent accidental triggers
-        timeoutRef.current = window.setTimeout(() => {
-            setIsCollapsed(false);
-        }, 100);
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        timeoutRef.current = window.setTimeout(() => setIsCollapsed(false), 100);
     };
 
-    // Handler to collapse on mouse leave with debounce
     const handleMouseLeave = () => {
-        if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current);
-        }
-        // Delay before collapsing to make it feel smoother
-        timeoutRef.current = window.setTimeout(() => {
-            setIsCollapsed(true);
-        }, 300);
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        timeoutRef.current = window.setTimeout(() => setIsCollapsed(true), 300);
     };
 
     const navItems = [
@@ -57,7 +44,7 @@ const Sidebar: React.FC = () => {
     return (
         <aside
             className={cn(
-                "bg-white border-right border-gray-200 h-screen flex flex-col sticky top-0 border-r transition-all duration-300 z-50",
+                "bg-brand-blue-500 h-screen flex flex-col sticky top-0 transition-all duration-300 z-50 text-white",
                 isCollapsed ? "w-20 min-w-[5rem]" : "w-64 min-w-[16rem]"
             )}
             onMouseEnter={handleMouseEnter}
@@ -65,19 +52,18 @@ const Sidebar: React.FC = () => {
         >
             <div className="p-6 flex items-center gap-3">
                 <div className="shrink-0 flex items-center justify-center">
-                    <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        {/* Hexagon Outline */}
-                        <path d="M50 8L88 28V72L50 92L12 72V28L50 8Z" stroke="black" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+                    <svg width="42" height="42" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        {/* Hexagon Outline - Matched Image Design */}
+                        <path d="M50 8 L90 28 V72 L50 92 L10 72 V28 Z" stroke="white" strokeWidth="8" strokeLinejoin="round" />
 
-                        {/* Solid Bars */}
-                        <rect x="25" y="60" width="12" height="25" fill="black" />
-                        <rect x="44" y="45" width="12" height="40" fill="black" />
-                        <rect x="63" y="20" width="12" height="65" fill="black" />
+                        {/* Vertical Bars - Matched Image Design */}
+                        <rect x="28" y="58" width="10" height="15" fill="white" />
+                        <rect x="45" y="40" width="10" height="33" fill="white" />
+                        <rect x="62" y="15" width="10" height="58" fill="white" />
 
-                        {/* Curved Growth Arrow - Swoosh */}
-                        <path d="M12 78 C 45 65 65 45 80 18" stroke="#FFA500" strokeWidth="8" strokeLinecap="round" fill="none" />
-                        {/* Arrow Head */}
-                        <path d="M60 18 L80 18 L80 38" stroke="#FFA500" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                        {/* Thick Orange Arrow - Matched Image Design */}
+                        <path d="M12 78 Q 45 74 85 18" stroke="#ffa314" strokeWidth="11" strokeLinecap="round" fill="none" />
+                        <path d="M72 18 L88 18 L88 34" stroke="#ffa314" strokeWidth="11" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                     </svg>
                 </div>
                 <div className={cn(
@@ -85,40 +71,43 @@ const Sidebar: React.FC = () => {
                     isCollapsed ? "opacity-0 w-0 overflow-hidden" : "opacity-100"
                 )}>
                     <div className="flex items-baseline gap-1">
-                        <span className="font-bold text-[#1F4788] text-2xl leading-none tracking-tight">FinGuard</span>
+                        <span className="font-bold text-white text-2xl leading-none tracking-tight">TrustVault</span>
                     </div>
-                    <span className="text-[#4A90E2] text-sm font-semibold tracking-wide leading-none">AI</span>
                 </div>
             </div>
 
-            <nav className="flex-1 px-4 mt-4 space-y-2">
+            <nav className="flex-1 px-0 mt-4 space-y-1">
                 {navItems.map((item) => (
                     <NavLink
                         key={item.label}
                         to={item.path}
                         className={({ isActive }) => cn(
-                            "flex items-center gap-3 px-3 py-3 rounded-xl transition-all group relative",
+                            "flex items-center gap-4 px-6 py-4 transition-all group relative border-l-4",
                             isActive
-                                ? "bg-blue-50 text-barclays-blue"
-                                : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
+                                ? "bg-white/10 text-white font-bold border-brand-orange-500"
+                                : "text-white/80 hover:bg-white/5 hover:text-white border-transparent"
                         )}
                     >
-                        <item.icon className={cn("w-5 h-5 shrink-0", isCollapsed && "mx-auto")} />
+                        <item.icon className={cn(
+                            "w-6 h-6 shrink-0 transition-transform group-hover:scale-110",
+                            "text-brand-orange-500", // "Attracting" color
+                            isCollapsed && "mx-auto"
+                        )} />
                         <div className={cn(
                             "flex flex-col transition-all duration-300 overflow-hidden",
                             isCollapsed ? "opacity-0 w-0" : "opacity-100 w-auto"
                         )}>
-                            <span className="font-semibold text-sm whitespace-nowrap">{item.label}</span>
+                            <span className="text-sm font-semibold whitespace-nowrap tracking-wide">{item.label}</span>
                         </div>
                     </NavLink>
                 ))}
             </nav>
 
-            <div className="p-4 border-t border-gray-100 flex flex-col gap-2">
+            <div className="p-4 border-t border-white/20 flex flex-col gap-2">
                 <NavLink
                     to="/login"
                     className={cn(
-                        "flex items-center gap-3 px-3 py-2 rounded-lg text-red-600 hover:bg-red-50 transition-colors",
+                        "flex items-center gap-3 px-3 py-2 rounded-lg text-white/60 hover:bg-white/10 hover:text-white transition-colors",
                         isCollapsed && "justify-center"
                     )}
                 >
@@ -134,4 +123,3 @@ const Sidebar: React.FC = () => {
 };
 
 export default Sidebar;
-

@@ -11,8 +11,8 @@ const SignalBreakdown: React.FC<SignalBreakdownProps> = ({ metrics }) => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Panel 1: Income Analysis */}
             <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col">
-                <div className="flex items-center gap-2 mb-6">
-                    <Wallet className="w-5 h-5 text-barclays-blue" />
+                    <div className="flex items-center gap-2 mb-6">
+                    <Wallet className="w-5 h-5 text-brand-blue-500" />
                     <h2 className="text-sm font-bold text-gray-900 uppercase tracking-tight">Income Pattern</h2>
                 </div>
                 <div className="flex-1 space-y-6">
@@ -45,19 +45,19 @@ const SignalBreakdown: React.FC<SignalBreakdownProps> = ({ metrics }) => {
 
             {/* Panel 2: Spending Behavior */}
             <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col">
-                <div className="flex items-center gap-2 mb-6">
-                    <Zap className="w-5 h-5 text-orange-500" />
+                    <div className="flex items-center gap-2 mb-6">
+                    <Zap className="w-5 h-5 text-brand-orange-500" />
                     <h2 className="text-sm font-bold text-gray-900 uppercase tracking-tight">Spending Behavior</h2>
                 </div>
                 <div className="flex-1 space-y-6">
                     <div className="space-y-4">
-                        <div className="p-4 bg-orange-50/50 rounded-xl border border-orange-100">
+                        <div className="p-4 bg-brand-orange-50/50 rounded-xl border border-brand-orange-100">
                             <div className="flex justify-between items-center mb-1">
-                                <span className="text-xs text-orange-800 font-bold uppercase tracking-tighter">Discretionary Drop</span>
-                                <span className="text-sm font-black text-orange-600">-{Math.abs(metrics.spending.discretionaryDrop)}%</span>
+                                <span className="text-xs text-brand-orange-800 font-bold uppercase tracking-tighter">Discretionary Drop</span>
+                                <span className="text-sm font-black text-brand-orange-600">-{Math.abs(metrics.spending.discretionaryDrop)}%</span>
                             </div>
-                            <div className="w-full h-1 bg-orange-200 rounded-full overflow-hidden mt-2">
-                                <div className="h-full bg-orange-500 w-[65%]" />
+                            <div className="w-full h-1 bg-brand-orange-200 rounded-full overflow-hidden mt-2">
+                                <div className="h-full bg-brand-orange-500 w-[65%]" />
                             </div>
                         </div>
 

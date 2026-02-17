@@ -11,27 +11,25 @@ import {
     Activity,
     TrendingUp,
     ArrowUpRight,
-    Sparkles
+    Sparkles,
+    ShieldAlert
 } from 'lucide-react';
 
 // --- Data Constants ---
 const riskDistributionData = [
-    { name: 'Critical (0-30 days)', value: 342, color: '#EF4444' }, // Modern Red
-    { name: 'High (30-60 days)', value: 583, color: '#F97316' }, // Modern Orange
-    { name: 'Medium (60-90 days)', value: 1124, color: '#EAB308' }, // Modern Yellow
-    { name: 'Monitoring (90+ days)', value: 2456, color: '#3B82F6' }, // Modern Blue
+    { name: 'Critical (0-30 days)', value: 342, color: '#DC2626' },
+    { name: 'High (30-60 days)', value: 583, color: '#ffa314' },   // Orange
+    { name: 'Medium (60-90 days)', value: 1124, color: '#FFC000' },
+    { name: 'Monitoring (90+ days)', value: 2456, color: '#2C83B9' }, // Header Blue
 ];
-
-
 
 const interventionStats = [
     { label: 'Grace Period Extension', success: '91%', count: 201, trend: '+5%', status: 'Excellent', color: 'bg-emerald-50 text-emerald-700 border-emerald-100' },
-    { label: 'Financial Counseling', success: '82%', count: 134, trend: '+2%', status: 'Very High', color: 'bg-blue-50 text-blue-700 border-blue-100' },
+    { label: 'Financial Counseling', success: '82%', count: 134, trend: '+2%', status: 'Very High', color: 'bg-brand-blue-50 text-brand-blue-700 border-brand-blue-100' },
     { label: 'Payment Holiday', success: '78%', count: 156, trend: '-1%', status: 'Effective', color: 'bg-indigo-50 text-indigo-700 border-indigo-100' },
     { label: 'Loan Restructuring', success: '64%', count: 89, trend: '+12%', status: 'Good', color: 'bg-amber-50 text-amber-700 border-amber-100' },
 ];
 
-// --- Animations ---
 // --- Animations ---
 const containerVariants: any = {
     hidden: { opacity: 0 },
@@ -74,43 +72,55 @@ const ExecutiveOverview: React.FC = () => {
             animate="visible"
             className="p-6 max-w-[1600px] mx-auto space-y-8"
         >
-            {/* 1. AI Insight Header */}
-            <motion.div variants={itemVariants} className="relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-gray-900 to-gray-800 p-8 shadow-2xl text-white">
-                <div className="absolute top-0 right-0 p-32 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                <div className="absolute bottom-0 left-0 p-24 bg-purple-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+            {/* 1. AI Insight Header - UPDATED THEME */}
+            <motion.div variants={itemVariants} className="relative overflow-hidden rounded-[2rem] bg-brand-blue-500 p-8 shadow-xl text-white">
+                {/* Background decoration matching the slide swooshes */}
+                <div className="absolute top-0 right-0 p-32 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                <div className="absolute bottom-0 left-0 p-24 bg-brand-orange-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
                 <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                     <div>
-                        <div className="flex items-center gap-2 text-blue-300 font-medium mb-2">
-                            <Sparkles className="w-5 h-5 animate-pulse" />
-                            <span>AI Daily Brief</span>
+                        <div className="flex items-center gap-2 text-white font-medium mb-2 bg-white/10 w-fit px-3 py-1 rounded-full border border-white/10">
+                            <Sparkles className="w-4 h-4 text-brand-orange-500 animate-pulse" />
+                            <span className="text-sm tracking-wide">AI Daily Brief</span>
                         </div>
                         <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">
-                            <span className="opacity-80 font-light">{greeting}, Anjali.</span> <br />
+                            <span className="opacity-80 font-light text-brand-blue-50">{greeting}, Anjali.</span> <br />
                             Portfolio risk is stable.
                         </h1>
-                        <p className="text-gray-400 max-w-xl text-lg">
-                            Critical actions required on <span className="text-white font-semibold">3 sectors</span> today.
-                            Intervention efficacy is up <span className="text-green-400 font-semibold">12%</span> from last week.
+                        <p className="text-white/80 max-w-xl text-lg">
+                            Critical actions required on <span className="text-brand-orange-500 font-bold">3 sectors</span> today.
+                            Intervention efficacy is up <span className="text-emerald-300 font-bold">12%</span> from last week.
                         </p>
                     </div>
 
-                    <div className="flex items-center gap-4 bg-white/5 backdrop-blur-md p-2 rounded-2xl border border-white/10">
-                        <Link to="/alerts" className="flex flex-col items-center justify-center w-24 h-20 rounded-xl bg-red-500/20 text-red-100 hover:bg-red-500/30 transition-colors border border-red-500/30 group">
-                            <span className="text-2xl font-bold group-hover:scale-110 transition-transform">5</span>
-                            <span className="text-xs font-medium opacity-80">Critical Alerts</span>
+                    <div className="flex items-center gap-6 bg-white/5 backdrop-blur-xl p-4 rounded-[1.5rem] border border-white/10 shadow-inner">
+                        <Link to="/alerts" className="flex items-center gap-4 group">
+                            <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-red-500/20 text-red-500 border border-red-500/20 group-hover:bg-red-500/30 transition-all duration-300">
+                                <ShieldAlert className="w-6 h-6 animate-pulse" />
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="text-2xl font-black leading-none group-hover:text-red-400 transition-colors">5</span>
+                                <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-white/50">Critical Alerts</span>
+                            </div>
                         </Link>
-                        <div className="w-px h-12 bg-white/10"></div>
-                        <div className="flex flex-col items-center justify-center w-24 h-24 rounded-xl text-white">
-                            <Clock className="w-6 h-6 mb-2 text-blue-400" />
-                            <span className="text-xs text-gray-400">Last Updated</span>
-                            <span className="text-sm font-bold">Just Now</span>
+
+                        <div className="w-px h-10 bg-white/10"></div>
+
+                        <div className="flex items-center gap-4">
+                            <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-white/5 text-brand-blue-100 border border-white/10">
+                                <Clock className="w-6 h-6" />
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="text-sm font-bold leading-none">Just Now</span>
+                                <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-white/50">Last Refreshed</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </motion.div>
 
-            {/* 2. Key Metrics Row - Clear Separation, No Overlap */}
+            {/* 2. Key Metrics Row */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <motion.div variants={itemVariants}>
                     <MetricCard
@@ -129,7 +139,7 @@ const ExecutiveOverview: React.FC = () => {
                         trend={{ value: "12%", direction: 'up', positive: true }}
                         icon="Zap"
                         subtitle="Active Actions"
-                        color="blue"
+                        color="blue" // Will use primary blue
                     />
                 </motion.div>
                 <motion.div variants={itemVariants}>
@@ -154,13 +164,13 @@ const ExecutiveOverview: React.FC = () => {
                 </motion.div>
             </div>
 
-            {/* 3. Main Analytics Section - Balanced Grid */}
+            {/* 3. Main Analytics Section */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                {/* Intervention Efficacy - Dominant Chart */}
+                {/* Intervention Efficacy */}
                 <motion.div variants={itemVariants} className="lg:col-span-2 bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100 relative overflow-hidden flex flex-col">
                     <div className="flex justify-between items-center mb-8">
                         <div className="flex items-center gap-4">
-                            <div className="p-3 bg-blue-50 rounded-2xl text-blue-600">
+                            <div className="p-3 bg-brand-blue-50 rounded-2xl text-brand-blue-500">
                                 <TrendingUp className="w-6 h-6" />
                             </div>
                             <div>
@@ -168,7 +178,7 @@ const ExecutiveOverview: React.FC = () => {
                                 <p className="text-sm text-gray-500 font-medium">Live success rates vs targets</p>
                             </div>
                         </div>
-                        <select className="bg-gray-50 border-none text-sm font-bold text-gray-600 rounded-xl py-2 px-4 cursor-pointer outline-none focus:ring-2 focus:ring-blue-100 hover:bg-gray-100 transition-colors">
+                        <select className="bg-gray-50 border-none text-sm font-bold text-gray-600 rounded-xl py-2 px-4 cursor-pointer outline-none focus:ring-2 focus:ring-brand-blue-500/20 hover:bg-gray-100 transition-colors">
                             <option>Last 30 Days</option>
                             <option>This Quarter</option>
                         </select>
@@ -180,9 +190,9 @@ const ExecutiveOverview: React.FC = () => {
 
                     <div className="grid grid-cols-4 gap-4 mt-8 pt-6 border-t border-gray-50">
                         {interventionStats.map(stat => (
-                            <div key={stat.label} className="text-center p-3 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-md transition-all duration-300 cursor-default border border-transparent hover:border-gray-100">
-                                <div className="text-[10px] font-bold text-gray-400 uppercase mb-1 truncate px-1 tracking-wider">{stat.label}</div>
-                                <div className="text-xl font-bold text-gray-900">{stat.success}</div>
+                            <div key={stat.label} className={`text-center p-3 rounded-2xl hover:shadow-md transition-all duration-300 cursor-default border border-transparent ${stat.color}`}>
+                                <div className="text-[10px] font-bold opacity-70 uppercase mb-1 truncate px-1 tracking-wider">{stat.label}</div>
+                                <div className="text-xl font-bold">{stat.success}</div>
                                 <div className={`text-[10px] font-bold mt-1 ${stat.trend.startsWith('+') ? 'text-green-600' : 'text-red-500'}`}>
                                     {stat.trend}
                                 </div>
@@ -191,12 +201,12 @@ const ExecutiveOverview: React.FC = () => {
                     </div>
                 </motion.div>
 
-                {/* Risk Profile - Focused View */}
+                {/* Risk Profile */}
                 <motion.div variants={itemVariants} className="lg:col-span-1 bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100 flex flex-col">
                     <div className="flex items-center justify-between mb-6">
                         <h3 className="text-xl font-bold text-gray-900">Risk Profile</h3>
                         <button className="p-2 hover:bg-gray-100 rounded-full transition-colors group">
-                            <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-gray-600" />
+                            <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-brand-blue-500" />
                         </button>
                     </div>
 
@@ -218,10 +228,10 @@ const ExecutiveOverview: React.FC = () => {
                 </motion.div>
             </div>
 
-            {/* 4. Deep Dive Signal Heatmap - Full Width */}
+            {/* 4. Deep Dive Signal Heatmap */}
             <motion.div variants={itemVariants} className="bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100">
                 <div className="flex items-center gap-4 mb-8">
-                    <div className="p-3 bg-orange-50 rounded-2xl text-orange-600">
+                    <div className="p-3 bg-brand-orange-50 rounded-2xl text-brand-orange-500">
                         <Activity className="w-6 h-6" />
                     </div>
                     <div>

@@ -27,12 +27,12 @@ const InterventionChart: React.FC = () => {
                 <AreaChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
                     <defs>
                         <linearGradient id="colorExtension" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor="#0D9488" stopOpacity={0.3} />
-                            <stop offset="95%" stopColor="#0D9488" stopOpacity={0} />
+                            <stop offset="5%" stopColor="#10B981" stopOpacity={0.3} />
+                            <stop offset="95%" stopColor="#10B981" stopOpacity={0} />
                         </linearGradient>
                         <linearGradient id="colorCounseling" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor="#9333EA" stopOpacity={0.3} />
-                            <stop offset="95%" stopColor="#9333EA" stopOpacity={0} />
+                            <stop offset="5%" stopColor="#2C83B9" stopOpacity={0.3} />
+                            <stop offset="95%" stopColor="#2C83B9" stopOpacity={0} />
                         </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
@@ -59,7 +59,7 @@ const InterventionChart: React.FC = () => {
                         type="monotone"
                         dataKey="extension"
                         name="Grace Period"
-                        stroke="#0D9488"
+                        stroke="#10B981"
                         strokeWidth={3}
                         fillOpacity={1}
                         fill="url(#colorExtension)"
@@ -68,7 +68,7 @@ const InterventionChart: React.FC = () => {
                         type="monotone"
                         dataKey="counseling"
                         name="Counseling"
-                        stroke="#9333EA"
+                        stroke="#2C83B9"
                         strokeWidth={3}
                         fillOpacity={1}
                         fill="url(#colorCounseling)"
@@ -77,7 +77,7 @@ const InterventionChart: React.FC = () => {
                         type="monotone"
                         dataKey="holiday"
                         name="Payment Holiday"
-                        stroke="#16A34A"
+                        stroke="#10B981"
                         strokeWidth={3}
                         fill="none"
                     />

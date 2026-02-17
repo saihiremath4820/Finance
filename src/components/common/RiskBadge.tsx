@@ -18,9 +18,9 @@ const RiskBadge: React.FC<RiskBadgeProps> = ({ score, level, size = 'md', showLa
 
     const styles = {
         critical: 'bg-red-100 text-red-700 border-red-200',
-        high: 'bg-orange-100 text-orange-700 border-orange-200',
+        high: 'bg-brand-orange-50 text-brand-orange-600 border-brand-orange-200',
         medium: 'bg-yellow-100 text-yellow-700 border-yellow-200',
-        low: 'bg-blue-100 text-blue-700 border-blue-200',
+        low: 'bg-brand-blue-50 text-brand-blue-700 border-brand-blue-200',
     };
 
     const sizes = {

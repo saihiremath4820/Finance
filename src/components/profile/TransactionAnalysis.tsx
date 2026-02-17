@@ -56,9 +56,9 @@ const TransactionAnalysis: React.FC<TransactionAnalysisProps> = ({ metrics }) =>
                         </div>
                         <h2 className="text-lg font-black text-gray-900 tracking-tight">Monthly Cash Flow</h2>
                     </div>
-                    <div className="flex gap-4">
+                        <div className="flex gap-4">
                         <div className="flex items-center gap-1.5 text-[10px] font-bold text-gray-400">
-                            <div className="w-2.5 h-2.5 rounded bg-barclays-blue" />
+                            <div className="w-2.5 h-2.5 rounded bg-brand-blue-500" />
                             INCOME
                         </div>
                         <div className="flex items-center gap-1.5 text-[10px] font-bold text-gray-400">
@@ -88,7 +88,7 @@ const TransactionAnalysis: React.FC<TransactionAnalysisProps> = ({ metrics }) =>
                                 cursor={{ fill: '#f8fafc' }}
                                 contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
                             />
-                            <Bar dataKey="income" fill="#00A9CE" radius={[4, 4, 0, 0]} barSize={20} />
+                            <Bar dataKey="income" fill="#0284C7" radius={[4, 4, 0, 0]} barSize={20} />
                             <Bar dataKey="expenses" fill="#e2e8f0" radius={[4, 4, 0, 0]} barSize={20} />
                             <Line type="monotone" dataKey="surplus" stroke="#10b981" strokeWidth={2} dot={{ fill: '#10b981', r: 4 }} />
                         </ComposedChart>
@@ -104,7 +104,7 @@ const TransactionAnalysis: React.FC<TransactionAnalysisProps> = ({ metrics }) =>
                         </div>
                         <h2 className="text-lg font-black text-gray-900 tracking-tight">Spending Categories</h2>
                     </div>
-                    <span className="text-[10px] font-bold text-barclays-blue uppercase bg-blue-50 px-2 py-1 rounded">30 Day Trend</span>
+                    <span className="text-[10px] font-bold text-brand-blue-500 uppercase bg-brand-blue-50 px-2 py-1 rounded">30 Day Trend</span>
                 </div>
 
                 <div className="flex-1 overflow-x-auto">

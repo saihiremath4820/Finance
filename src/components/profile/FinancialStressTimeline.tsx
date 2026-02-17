@@ -11,7 +11,7 @@ const FinancialStressTimeline: React.FC<FinancialStressTimelineProps> = ({ event
     return (
         <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
             <div className="flex items-center gap-2 mb-10">
-                <LucideIcons.History className="w-5 h-5 text-barclays-blue" />
+                <LucideIcons.History className="w-5 h-5 text-brand-blue-500" />
                 <h2 className="text-lg font-bold text-gray-900">Financial Stress Timeline (90 Days)</h2>
             </div>
 

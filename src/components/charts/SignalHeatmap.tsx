@@ -101,7 +101,7 @@ const SignalHeatmap: React.FC = () => {
                     <div className={cn(
                         "absolute top-0 left-0 right-0 h-1",
                         signal.score >= 8 ? "bg-red-500" :
-                            signal.score >= 7 ? "bg-orange-500" : "bg-yellow-500"
+                            signal.score >= 7 ? "bg-brand-orange-500" : "bg-yellow-500"
                     )} />
 
                     {/* Header */}
@@ -110,7 +110,7 @@ const SignalHeatmap: React.FC = () => {
                             <div className={cn(
                                 "w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg shadow-sm border",
                                 signal.score >= 8 ? "bg-red-50 text-red-600 border-red-100" :
-                                    signal.score >= 7 ? "bg-orange-50 text-orange-600 border-orange-100" :
+                                    signal.score >= 7 ? "bg-brand-orange-50 text-brand-orange-500 border-brand-orange-100" :
                                         "bg-yellow-50 text-yellow-600 border-yellow-100"
                             )}>
                                 {signal.score}
@@ -165,7 +165,7 @@ const SignalHeatmap: React.FC = () => {
                     {/* Footer Action */}
                     <div className="pt-3 border-t border-gray-50 flex justify-between items-center opacity-80 group-hover:opacity-100 transition-opacity">
                         <span className="text-[11px] font-bold text-gray-400">AI Confidence: 94%</span>
-                        <button className="flex items-center gap-1 text-[11px] font-bold text-blue-600 hover:gap-2 transition-all">
+                        <button className="flex items-center gap-1 text-[11px] font-bold text-brand-blue-500 hover:gap-2 transition-all">
                             Analyze Cohort <ArrowRight size={12} />
                         </button>
                     </div>
