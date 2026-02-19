@@ -1,19 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import MetricCard from '../components/common/MetricCard';
+
+
 import RiskDonutChart from '../components/charts/RiskDonutChart';
 import SignalHeatmap from '../components/charts/SignalHeatmap';
 
 import InterventionChart from '../components/charts/InterventionChart';
-import {
-    Clock,
-    Activity,
-    TrendingUp,
-    ArrowUpRight,
-    Sparkles,
-    ShieldAlert
-} from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 // --- Data Constants ---
 const riskDistributionData = [
@@ -80,10 +73,7 @@ const ExecutiveOverview: React.FC = () => {
 
                 <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                     <div>
-                        <div className="flex items-center gap-2 text-white font-medium mb-2 bg-white/10 w-fit px-3 py-1 rounded-full border border-white/10">
-                            <Sparkles className="w-4 h-4 text-brand-orange-500 animate-pulse" />
-                            <span className="text-sm tracking-wide">AI Daily Brief</span>
-                        </div>
+
                         <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">
                             <span className="opacity-80 font-light text-brand-blue-50">{greeting}, Anjali.</span> <br />
                             Portfolio risk is stable.
@@ -94,75 +84,11 @@ const ExecutiveOverview: React.FC = () => {
                         </p>
                     </div>
 
-                    <div className="flex items-center gap-6 bg-white/5 backdrop-blur-xl p-4 rounded-[1.5rem] border border-white/10 shadow-inner">
-                        <Link to="/alerts" className="flex items-center gap-4 group">
-                            <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-red-500/20 text-red-500 border border-red-500/20 group-hover:bg-red-500/30 transition-all duration-300">
-                                <ShieldAlert className="w-6 h-6 animate-pulse" />
-                            </div>
-                            <div className="flex flex-col">
-                                <span className="text-2xl font-black leading-none group-hover:text-red-400 transition-colors">5</span>
-                                <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-white/50">Critical Alerts</span>
-                            </div>
-                        </Link>
 
-                        <div className="w-px h-10 bg-white/10"></div>
-
-                        <div className="flex items-center gap-4">
-                            <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-white/5 text-brand-blue-100 border border-white/10">
-                                <Clock className="w-6 h-6" />
-                            </div>
-                            <div className="flex flex-col">
-                                <span className="text-sm font-bold leading-none">Just Now</span>
-                                <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-white/50">Last Refreshed</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </motion.div>
 
-            {/* 2. Key Metrics Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <motion.div variants={itemVariants}>
-                    <MetricCard
-                        title="Total At-Risk"
-                        value="4,505"
-                        trend={{ value: "8.3%", direction: 'up', positive: false }}
-                        icon="AlertCircle"
-                        subtitle="Customers >60 Risk"
-                        color="orange"
-                    />
-                </motion.div>
-                <motion.div variants={itemVariants}>
-                    <MetricCard
-                        title="24h Interventions"
-                        value="89"
-                        trend={{ value: "12%", direction: 'up', positive: true }}
-                        icon="Zap"
-                        subtitle="Active Actions"
-                        color="blue" // Will use primary blue
-                    />
-                </motion.div>
-                <motion.div variants={itemVariants}>
-                    <MetricCard
-                        title="Prevented Defaults"
-                        value="156"
-                        trend={{ value: "23%", direction: 'up', positive: true }}
-                        icon="ShieldCheck"
-                        subtitle="This Month"
-                        color="green"
-                    />
-                </motion.div>
-                <motion.div variants={itemVariants}>
-                    <MetricCard
-                        title="Value Recovered"
-                        value="₹45.2L"
-                        trend={{ value: "34%", direction: 'up', positive: true }}
-                        icon="Banknote"
-                        subtitle="Loss Avoided"
-                        color="green"
-                    />
-                </motion.div>
-            </div>
+
 
             {/* 3. Main Analytics Section */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -170,9 +96,6 @@ const ExecutiveOverview: React.FC = () => {
                 <motion.div variants={itemVariants} className="lg:col-span-2 bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100 relative overflow-hidden flex flex-col">
                     <div className="flex justify-between items-center mb-8">
                         <div className="flex items-center gap-4">
-                            <div className="p-3 bg-brand-blue-50 rounded-2xl text-brand-blue-500">
-                                <TrendingUp className="w-6 h-6" />
-                            </div>
                             <div>
                                 <h3 className="text-xl font-bold text-gray-900">Intervention Efficacy</h3>
                                 <p className="text-sm text-gray-500 font-medium">Live success rates vs targets</p>
@@ -231,9 +154,6 @@ const ExecutiveOverview: React.FC = () => {
             {/* 4. Deep Dive Signal Heatmap */}
             <motion.div variants={itemVariants} className="bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100">
                 <div className="flex items-center gap-4 mb-8">
-                    <div className="p-3 bg-brand-orange-50 rounded-2xl text-brand-orange-500">
-                        <Activity className="w-6 h-6" />
-                    </div>
                     <div>
                         <h3 className="text-xl font-bold text-gray-900">Early Warning Signals</h3>
                         <p className="text-sm text-gray-500 font-medium">Real-time signal correlation matrix via AI Engine</p>

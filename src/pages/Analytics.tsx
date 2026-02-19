@@ -11,7 +11,7 @@ import {
     Pie,
     Cell
 } from 'recharts';
-import MetricCard from '../components/common/MetricCard';
+
 import { Download, Filter } from 'lucide-react';
 
 const portfolioTrendData = [
@@ -49,41 +49,7 @@ const Analytics: React.FC = () => {
                 </div>
             </div>
 
-            {/* Key Metrics */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <MetricCard
-                    title="Total Portfolio Value"
-                    value="₹142.5Cr"
-                    trend={{ value: "2.1%", direction: 'up', positive: true }}
-                    icon="TrendingUp"
-                    subtitle="vs Previous Quarter"
-                    color="blue"
-                />
-                <MetricCard
-                    title="Avg Risk Score"
-                    value="72.4"
-                    trend={{ value: "1.5 pts", direction: 'up', positive: true }}
-                    icon="ShieldCheck"
-                    subtitle="IMPROVEMENT"
-                    color="green"
-                />
-                <MetricCard
-                    title="Critical Exposure"
-                    value="₹4.2Cr"
-                    trend={{ value: "12%", direction: 'down', positive: true }}
-                    icon="AlertTriangle"
-                    subtitle="Decreased Risk"
-                    color="orange"
-                />
-                <MetricCard
-                    title="Active Customers"
-                    value="12,450"
-                    trend={{ value: "4.5%", direction: 'up', positive: true }}
-                    icon="Users"
-                    subtitle="New Acquisitions"
-                    color="blue"
-                />
-            </div>
+
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Risk Trend Chart */}

@@ -16,10 +16,7 @@ const Header: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-6">
-                <div className="flex items-center gap-2 text-xs font-semibold text-white/80 bg-white/10 px-3 py-1.5 rounded-full border border-white/10">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                    SYSTEM LIVE: FEB 15, 2026
-                </div>
+
 
                 <button className="relative p-2 text-white/80 hover:bg-white/10 rounded-lg transition-colors">
                     <Bell className="w-5 h-5" />

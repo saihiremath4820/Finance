@@ -50,7 +50,7 @@ const AIAssistant: React.FC = () => {
                                     <Sparkles className="w-4 h-4 text-indigo-300 animate-pulse" />
                                 </div>
                                 <div>
-                                    <h3 className="text-white font-bold text-sm">FinGuard AI</h3>
+                                    <h3 className="text-white font-bold text-sm">TrustVault AI</h3>
                                     <div className="flex items-center gap-1.5">
                                         <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                                         <span className="text-[10px] text-gray-400 font-medium">Online & Ready</span>
