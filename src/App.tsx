@@ -9,6 +9,7 @@ import Settings from './pages/Settings';
 import AlertManagement from './pages/AlertManagement';
 import LoginPage from './pages/LoginPage';
 import BrokerDashboard from './pages/BrokerDashboard';
+import RiskEngine from './pages/RiskEngine';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               <Route path="/customer/:id" element={<CustomerProfile />} />
               <Route path="/alerts" element={<AlertManagement />} />
               <Route path="/analytics" element={<Analytics />} />
+              <Route path="/risk-engine" element={<RiskEngine />} />
               <Route path="/settings" element={<Settings />} />
             </Route>
 

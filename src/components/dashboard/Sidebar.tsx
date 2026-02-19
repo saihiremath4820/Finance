@@ -8,7 +8,8 @@ import {
     Settings,
     ShieldAlert,
     LayoutTemplate,
-    LogOut
+    LogOut,
+    Cpu,
 } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -37,6 +38,7 @@ const Sidebar: React.FC = () => {
         { icon: Users, label: 'Customer Profiles', path: '/customer/CU789456' },
         { icon: ShieldAlert, label: 'Alerts', path: '/alerts' },
         { icon: PieChart, label: 'Analytics', path: '/analytics' },
+        { icon: Cpu, label: 'Risk Engine', path: '/risk-engine' },
         { icon: LayoutTemplate, label: 'Broker Portal', path: '/broker' },
         { icon: Settings, label: 'Settings', path: '/settings' },
     ];

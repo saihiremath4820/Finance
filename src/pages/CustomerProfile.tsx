@@ -10,6 +10,8 @@ import EESSIntegrationPanel from '../components/profile/EESSIntegrationPanel';
 import InterventionRecommendations from '../components/profile/InterventionRecommendations';
 import SHAPDashboard from '../components/profile/SHAPDashboard';
 import Button from '../components/common/Button';
+import FeatureEngineeringPanel from '../components/profile/FeatureEngineeringPanel';
+import { deriveFeatureSet, computeRiskScore, DEFAULT_THRESHOLDS } from '../utils/riskEngine';
 
 const CustomerProfile: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -18,6 +20,12 @@ const CustomerProfile: React.FC = () => {
     const customer = useMemo(() => {
         return mockCustomers.find(c => c.id === id) || mockCustomers[0];
     }, [id]);
+
+    const riskResult = useMemo(() => {
+        if (!customer) return null;
+        const features = deriveFeatureSet(customer as any);
+        return computeRiskScore(features, DEFAULT_THRESHOLDS);
+    }, [customer]);
 
     if (!customer) {
         return <div>Customer not found</div>;
@@ -67,11 +75,20 @@ const CustomerProfile: React.FC = () => {
             {/* 5. 🔥 EESS Integration - The Differentiator */}
             <EESSIntegrationPanel data={customer.eess} />
 
+            {/* 5b. 📊 Feature Engineering Parameters - NEW */}
+            {riskResult && (
+                <FeatureEngineeringPanel featureFlags={riskResult.featureFlags} />
+            )}
+
             {/* 6. AI Intervention Strategy */}
             <InterventionRecommendations interventions={customer.recommendedInterventions} />
 
-            {/* 7. SHAP Dashboard */}
-            <SHAPDashboard />
+            {/* 7. SHAP Dashboard (now customer-driven) */}
+            <SHAPDashboard
+                shapContributions={riskResult?.shapContributions}
+                modelScore={riskResult?.score ?? customer.riskScore}
+                customerName={customer.name}
+            />
 
             <div className="flex flex-col items-center justify-center pt-12 pb-8 opacity-60">
                 <div className="flex items-center gap-2 mb-2">
